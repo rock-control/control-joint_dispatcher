@@ -63,6 +63,9 @@ bool Output::isFullyUpdated() const
 
 void Output::updateJoint(size_t jointIdx, base::Time const& time, base::JointState const& sample)
 {
+    if (jointIdx >= size())
+        throw std::out_of_range("given joint index is out of bounds");
+
     mIsNew = true;
     mState.states[jointIdx] = sample;
     mUpdateTime[jointIdx] = time;

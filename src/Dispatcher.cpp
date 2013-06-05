@@ -42,6 +42,11 @@ void Dispatcher::addDispatch(
         ChannelID input,  JointSelection const& inputJoints,
         ChannelID output, JointSelection const& outputJoints)
 {
+    if (input >= mInputs.size())
+        throw std::out_of_range("given input channel ID is out of bounds");
+    if (output >= mInputs.size())
+        throw std::out_of_range("given output channel ID is out of bounds");
+
     SingleDispatch dispatch;
     dispatch.input = inputJoints;
     dispatch.output_channel = &mOutputs[output];
@@ -61,6 +66,9 @@ void Dispatcher::addDispatch(
 
 void Dispatcher::write(ChannelID input, base::samples::Joints const& sample)
 {
+    if (input >= mInputs.size())
+        throw std::out_of_range("given input channel ID is out of bounds");
+
     mInputs[input].write(sample);
 }
 
@@ -71,6 +79,9 @@ void Dispatcher::write(std::string const& input, base::samples::Joints const& sa
 
 bool Dispatcher::read(ChannelID output, base::samples::Joints& sample)
 {
+    if (output >= mOutputs.size())
+        throw std::out_of_range("given output channel ID is out of bounds");
+
     if (mOutputs[output].isNew())
     {
         sample = mOutputs[output].read();
