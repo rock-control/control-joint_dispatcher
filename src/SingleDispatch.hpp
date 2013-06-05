@@ -25,8 +25,6 @@ namespace joint_dispatcher
         void resolveInputNames(base::samples::Joints const& input_sample);
 
         void write(base::samples::Joints const& input);
-
-        void reset();
     };
 }
 
