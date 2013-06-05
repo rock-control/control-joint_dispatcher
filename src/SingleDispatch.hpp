@@ -13,8 +13,6 @@ namespace joint_dispatcher
      */
     struct SingleDispatch
     {
-        base::Time mLastUpdate;
-
         /** The joint selection on the input */
         JointSelection input;
         /** The output channel */
