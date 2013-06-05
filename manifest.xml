@@ -1,6 +1,8 @@
 <package>
   <description brief="Implementation of mux/demux logic for base::samples::Joints and base::commands::Joints">
-  
+      Generic implementation of a N-to-M mapping for base::samples::Joints. It
+      allows to define arbitrary dispatches of joints, either by name or by
+      index, and manage the input->output process.
   </description>
   <author>Sylvain Joyeux/sylvain.joyeux@dfki.de</author>
   <license>LGPLv2 or later</license>
