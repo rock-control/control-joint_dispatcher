@@ -75,6 +75,7 @@ void Output::updateJoint(size_t jointIdx, base::Time const& time, base::JointSta
 
 base::samples::Joints Output::read()
 {
+    mIsNew = false;
     fill(mUpdatedJoints.begin(), mUpdatedJoints.end(), false);
     mFullUpdateCounter = mUpdatedJoints.size();
     return mState;
