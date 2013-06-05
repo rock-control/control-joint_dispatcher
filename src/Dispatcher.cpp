@@ -102,7 +102,7 @@ void Dispatcher::reset()
 {
     for (size_t i = 0; i < mInputs.size(); ++i)
         mInputs[i].reset();
-    for (size_t i = 0; i < mInputs.size(); ++i)
+    for (size_t i = 0; i < mOutputs.size(); ++i)
         mOutputs[i].reset();
 }
 
