@@ -84,3 +84,11 @@ bool Dispatcher::read(std::string const& name, base::samples::Joints& sample)
     return read(getOutputByName(name), sample);
 }
 
+void Dispatcher::reset()
+{
+    for (size_t i = 0; i < mInputs.size(); ++i)
+        mInputs[i].reset();
+    for (size_t i = 0; i < mInputs.size(); ++i)
+        mOutputs[i].reset();
+}
+

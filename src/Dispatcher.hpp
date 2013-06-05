@@ -88,6 +88,11 @@ namespace joint_dispatcher
         /** @overload
          */
         bool read(std::string const& name, base::samples::Joints& sample);
+
+        /** Resets the internal tracking state without changing the
+         * configuration state
+         */
+        void reset();
     };
 }
 
