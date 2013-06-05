@@ -71,6 +71,8 @@ void Output::updateJoint(size_t jointIdx, base::Time const& time, base::JointSta
 
     mIsNew = true;
     mState.states[jointIdx] = sample;
+    if (mState.time < time)
+        mState.time = time;
     mUpdateTime[jointIdx] = time;
     if (!mUpdatedJoints[jointIdx])
     {
