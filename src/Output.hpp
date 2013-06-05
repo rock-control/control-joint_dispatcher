@@ -52,7 +52,7 @@ namespace joint_dispatcher
          *
          * @throws base::samples::Joints::InvalidName if one of the names does not exist
          */
-        std::vector<size_t> mapJointNameToIndex(std::vector<std::string> const& names) const;
+        std::vector<size_t> mapJointNamesToIndex(std::vector<std::string> const& names) const;
 
         /** The count of joints */
         size_t size() const;

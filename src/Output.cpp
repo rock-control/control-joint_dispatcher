@@ -22,14 +22,13 @@ vector<string> Output::getJointNames() const
     return mState.names;
 }
 
-vector<size_t> Output::mapJointNameToIndex(vector<string> const& names) const
+vector<size_t> Output::mapJointNamesToIndex(vector<string> const& names) const
 {
     vector<size_t> result(names.size());
     for (size_t nameIdx = 0; nameIdx < names.size(); ++nameIdx)
         result[nameIdx] = mState.mapNameToIndex(names[nameIdx]);
     return result;
 }
-
 
 void Output::resize(vector<string> const& jointNames)
 {
