@@ -3,15 +3,7 @@
   
   </description>
   <author>Sylvain Joyeux/sylvain.joyeux@dfki.de</author>
-  <license></license>
-  <url>http://</url>
-  <logo>http://</logo>
-  <!--
-   To add any dependencies use the depend tag
-  <depend package="dummy-dependency-0" />
-	...
-  <depend package="dummy-dependency-n-1" />
-  <depend package="dummy-dependency-n" />
-  -->
+  <license>LGPLv2 or later</license>
+
   <depend package="base/types" />
 </package>

@@ -1,7 +1,5 @@
 rock_library(joint_dispatcher
-    SOURCES Dummy.cpp
-    HEADERS Dummy.hpp)
-
-rock_executable(joint_dispatcher_bin Main.cpp
-    DEPS joint_dispatcher)
+    SOURCES Output.cpp Input.cpp SingleDispatch.cpp Dispatcher.cpp
+    HEADERS Output.hpp Input.hpp SingleDispatch.hpp Dispatcher.hpp
+    DEPS_PKGCONFIG base-types)
 
