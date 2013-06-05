@@ -18,9 +18,12 @@ namespace joint_dispatcher
 
         void resolveNames(base::samples::Joints const& sample)
         {
-            byIndex.resize(byName.size());
-            for (size_t i = 0; i < byName.size(); ++i)
-                byIndex[i] = sample.mapNameToIndex(byName[i]);
+            if (!byName.empty())
+            {
+                byIndex.resize(byName.size());
+                for (size_t i = 0; i < byName.size(); ++i)
+                    byIndex[i] = sample.mapNameToIndex(byName[i]);
+            }
         }
     };
 }
