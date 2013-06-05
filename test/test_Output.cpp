@@ -3,12 +3,18 @@
 
 using namespace joint_dispatcher;
 
-BOOST_AUTO_TEST_CASE(it_should_mark_as_new_as_soon_as_one_joint_is_updated)
+BOOST_AUTO_TEST_CASE(it_should_mark_as_new_only_when_all_joints_have_been_updated_at_least_once)
 {
     Output out;
     out.resize(2);
     BOOST_REQUIRE(!out.isNew());
     out.updateJoint(0, base::Time(), base::JointState());
+    BOOST_REQUIRE(!out.isNew());
+    out.updateJoint(1, base::Time(), base::JointState());
+    BOOST_REQUIRE(out.isNew());
+    out.read();
+    BOOST_REQUIRE(!out.isNew());
+    out.updateJoint(1, base::Time(), base::JointState());
     BOOST_REQUIRE(out.isNew());
 }
 

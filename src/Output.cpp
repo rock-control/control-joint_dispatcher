@@ -5,7 +5,8 @@ using namespace std;
 
 Output::Output(std::string const& name)
     : mName(name)
-    , mIsNew(false) {}
+    , mIsNew(false)
+    , mFullyInitialized(false) {}
 
 std::string Output::getName() const
 {
@@ -49,11 +50,13 @@ void Output::reset()
     fill(mUpdatedJoints.begin(), mUpdatedJoints.end(), false);
     fill(mUpdateTime.begin(), mUpdateTime.end(), base::Time());
     mFullUpdateCounter = mState.size();
+    mFullyInitialized = false;
+    mIsNew = false;
 }
 
 bool Output::isNew() const
 {
-    return mIsNew;
+    return mFullyInitialized && mIsNew;
 }
 
 bool Output::isFullyUpdated() const
@@ -73,6 +76,8 @@ void Output::updateJoint(size_t jointIdx, base::Time const& time, base::JointSta
     {
         mUpdatedJoints[jointIdx] = true;
         mFullUpdateCounter--;
+        if (mFullUpdateCounter == 0)
+            mFullyInitialized = true;
     }
 }
 

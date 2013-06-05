@@ -22,6 +22,10 @@ namespace joint_dispatcher
          * Dispatcher::read is called for it
          */
         bool mIsNew;
+        /** If true, all joints in mState have been updated at least once.
+         * isNew will return false until it is the case
+         */
+        bool mFullyInitialized;
         /** A count of joints that need to be updated before the joint has been
          * fully updated
          */
