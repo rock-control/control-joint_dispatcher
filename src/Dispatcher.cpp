@@ -87,7 +87,10 @@ bool Dispatcher::read(ChannelID output, base::samples::Joints& sample)
         sample = mOutputs[output].read();
         return true;
     }
-    return false;
+    else
+    {
+        return false;
+    }
 }
 
 bool Dispatcher::read(std::string const& name, base::samples::Joints& sample)
