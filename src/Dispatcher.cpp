@@ -12,14 +12,14 @@ Dispatcher::ChannelID Dispatcher::addOutput(std::string const& name, size_t size
 {
     mOutputs.push_back(Output(name));
     mOutputs.back().resize(size);
-    return mInputs.size() - 1;
+    return mOutputs.size() - 1;
 }
 
 Dispatcher::ChannelID Dispatcher::addOutput(std::string const& name, std::vector<std::string> const& jointNames)
 {
     mOutputs.push_back(Output(name));
     mOutputs.back().resize(jointNames);
-    return mInputs.size() - 1;
+    return mOutputs.size() - 1;
 }
 
 Dispatcher::ChannelID Dispatcher::getInputByName(std::string const& name) const
@@ -44,7 +44,7 @@ void Dispatcher::addDispatch(
 {
     if (input >= mInputs.size())
         throw std::out_of_range("given input channel ID is out of bounds");
-    if (output >= mInputs.size())
+    if (output >= mOutputs.size())
         throw std::out_of_range("given output channel ID is out of bounds");
 
     SingleDispatch dispatch;
