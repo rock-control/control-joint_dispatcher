@@ -70,7 +70,7 @@ void Output::updateJoint(size_t jointIdx, base::Time const& time, base::JointSta
         throw std::out_of_range("given joint index is out of bounds");
 
     mIsNew = true;
-    mState.states[jointIdx] = sample;
+    mState[jointIdx] = sample;
     if (mState.time < time)
         mState.time = time;
     mUpdateTime[jointIdx] = time;

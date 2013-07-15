@@ -26,15 +26,15 @@ BOOST_AUTO_TEST_CASE(it_should_dispatch_an_input_sample_on_the_output)
     dispatch.output.byIndex.push_back(0);
     base::samples::Joints sample;
     sample.resize(3);
-    sample.states[0].position = 0;
-    sample.states[1].position = 1;
-    sample.states[2].position = 2;
+    sample[0].position = 0;
+    sample[1].position = 1;
+    sample[2].position = 2;
     dispatch.write(sample);
 
     sample = output.read();
-    BOOST_REQUIRE_EQUAL(1, round(sample.states[0].position));
-    BOOST_REQUIRE_EQUAL(0, round(sample.states[1].position));
-    BOOST_REQUIRE_EQUAL(2, round(sample.states[2].position));
+    BOOST_REQUIRE_EQUAL(1, round(sample[0].position));
+    BOOST_REQUIRE_EQUAL(0, round(sample[1].position));
+    BOOST_REQUIRE_EQUAL(2, round(sample[2].position));
 }
 
 
