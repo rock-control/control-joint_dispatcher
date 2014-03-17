@@ -19,6 +19,7 @@ StateAggregator::StateAggregator(const std::vector< std::pair<size_t, std::strin
         info.updated = false;
         info.stateId  = board_idx;
         info.outputPosition = i;
+        status.names[i] = actuatorMap[i].second;
         
         stateMap.insert(std::make_pair(board_idx, info));
         
