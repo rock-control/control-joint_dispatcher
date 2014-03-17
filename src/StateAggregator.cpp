@@ -86,10 +86,10 @@ void StateAggregator::setNewStatus(size_t stateId, const base::Time stateTime, c
     
     info.updated = true;
     info.updateTime = stateTime;
-    status[stateId] = state;
+    status[info.outputPosition] = state;
 
     //allways use the latest time
-    status.time = stateTime;
+    status.time = std::max(stateTime, status.time);
 
     //if we got updates for all joints,
     //this means we have a full and valid state,
