@@ -8,4 +8,5 @@
   <license>LGPLv2 or later</license>
 
   <depend package="base/types" />
+  <tags>stable</tags>
 </package>
