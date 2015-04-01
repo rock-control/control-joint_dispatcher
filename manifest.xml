@@ -4,7 +4,7 @@
       allows to define arbitrary dispatches of joints, either by name or by
       index, and manage the input->output process.
   </description>
-  <author>Sylvain Joyeux/sylvain.joyeux@dfki.de</author>
+  <maintainer>Sylvain Joyeux/sylvain.joyeux@m4x.org</maintainer>
   <license>LGPLv2 or later</license>
 
   <depend package="base/types" />
