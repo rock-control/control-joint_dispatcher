@@ -51,6 +51,10 @@ namespace joint_dispatcher
          */
         ChannelID getOutputByName(std::string const& name) const;
 
+        /** Returns the Output object associated with the given ID
+         */
+        Output &getOutput(ChannelID id);
+        
         /** This declares a mapping from some joints on a given input and some
          * joints on a given output
          */
