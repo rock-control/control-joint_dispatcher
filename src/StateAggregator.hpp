@@ -2,7 +2,7 @@
 #define STATEAGGREGATOR_HPP
 #include <vector>
 #include <map>
-#include <base/time.h>
+#include <base/Time.hpp>
 #include <base/commands/Joints.hpp>
 #include <boost/function.hpp>
 
