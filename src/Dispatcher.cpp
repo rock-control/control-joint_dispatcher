@@ -38,6 +38,12 @@ Dispatcher::ChannelID Dispatcher::getOutputByName(std::string const& name) const
     throw std::runtime_error("there is no declared output named " + name);
 }
 
+Output& Dispatcher::getOutput(ChannelID id)
+{
+    return mOutputs[id];
+}
+
+
 void Dispatcher::addDispatch(
         ChannelID input,  JointSelection const& inputJoints,
         ChannelID output, JointSelection const& outputJoints)
