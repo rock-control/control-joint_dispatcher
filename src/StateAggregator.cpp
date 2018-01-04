@@ -13,7 +13,7 @@ StateAggregator::StateAggregator(const std::vector< std::pair<size_t, std::strin
 
     for (size_t i = 0; i < actuatorCnt; ++i)
     {
-        size_t board_idx = abs(actuatorMap[i].first);
+        size_t board_idx = actuatorMap[i].first;
         
         StateInfo info;
         info.updated = false;
