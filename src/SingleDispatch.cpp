@@ -17,7 +17,7 @@ void SingleDispatch::write(base::samples::Joints const& sample)
     for (size_t i = 0; i < input.size(); ++i)
     {
         size_t outputIdx = output.byIndex[i];
-        output_channel->updateJoint(outputIdx, sample.time, sample[input.byIndex[i]]);
+        output_channel->updateJoint(outputIdx, sample.time, sample[input.byIndex[i]], !defer_output);
     }
 }
 

@@ -19,7 +19,9 @@ namespace joint_dispatcher
         Output* output_channel;
         /** The joint selection on the output */
         JointSelection output;
-
+        /** When true, do not set output's flag for new data needing to be read */
+        bool defer_output = false;
+        
         SingleDispatch();
 
         void resolveInputNames(base::samples::Joints const& input_sample);

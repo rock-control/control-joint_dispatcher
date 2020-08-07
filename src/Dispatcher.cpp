@@ -46,7 +46,8 @@ Output& Dispatcher::getOutput(ChannelID id)
 
 void Dispatcher::addDispatch(
         ChannelID input,  JointSelection const& inputJoints,
-        ChannelID output, JointSelection const& outputJoints)
+        ChannelID output, JointSelection const& outputJoints,
+        bool defer_output)
 {
     if (input >= mInputs.size())
         throw std::out_of_range("given input channel ID is out of bounds");
@@ -59,15 +60,22 @@ void Dispatcher::addDispatch(
     dispatch.output = outputJoints;
     // The names should be resolv-able right now
     dispatch.output.resolveNames(mOutputs[output].read());
+    dispatch.defer_output = defer_output;
     mInputs[input].dispatches.push_back(dispatch);
 }
 
 void Dispatcher::addDispatch(
         std::string const& input, JointSelection const& inputJoints,
-        std::string const& output, JointSelection const& outputJoints)
+        std::string const& output, JointSelection const& outputJoints,
+        bool defer_output)
 {
-    return addDispatch(getInputByName(input), inputJoints,
-            getOutputByName(output), outputJoints);
+    return addDispatch(
+        getInputByName(input), 
+        inputJoints,
+        getOutputByName(output),
+        outputJoints,
+        defer_output
+    );
 }
 
 void Dispatcher::write(ChannelID input, base::samples::Joints const& sample)
