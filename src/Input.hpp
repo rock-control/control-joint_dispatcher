@@ -13,6 +13,7 @@ namespace joint_dispatcher
     {
         std::string mName;
         base::Time mLastUpdate;
+        std::vector<std::string> inputJointNames;
 
     public:
         Input(std::string const& name = "");
