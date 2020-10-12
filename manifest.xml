@@ -5,6 +5,7 @@
       index, and manage the input->output process.
   </description>
   <maintainer>Sylvain Joyeux/sylvain.joyeux@m4x.org</maintainer>
+  <maintainer>Vinzenz Bargsten/vinzenz.bargsten@dfki.de</maintainer>
   <license>LGPLv2 or later</license>
 
   <depend package="base/types" />
