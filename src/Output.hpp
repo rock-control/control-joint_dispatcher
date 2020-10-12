@@ -44,7 +44,7 @@ namespace joint_dispatcher
         std::string getName() const;
 
         /** Updates a joint on this output */
-        void updateJoint(size_t jointIdx, base::Time const& time, base::JointState const& sample);
+        void updateJoint(size_t jointIdx, base::Time const& time, base::JointState const& sample, bool needsRead=true);
 
         /** Read the current joint state, resetting all the 'new' flags */
         base::samples::Joints read();

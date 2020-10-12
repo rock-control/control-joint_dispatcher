@@ -60,14 +60,16 @@ namespace joint_dispatcher
          */
         void addDispatch(
                 ChannelID input,  JointSelection const& inputJoints,
-                ChannelID output, JointSelection const& outputJoints);
+                ChannelID output, JointSelection const& outputJoints,
+                bool defer_output=false);
 
         /** @overload
          */
         void addDispatch(std::string const& input,
                 JointSelection const& inputJoints,
                 std::string const& output,
-                JointSelection const& outputJoints);
+                JointSelection const& outputJoints,
+                bool defer_output=false);
 
         /** Pushes a sample on a given input
          *

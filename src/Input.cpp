@@ -12,10 +12,15 @@ std::string Input::getName() const
 
 void Input::write(base::samples::Joints const& joints)
 {
-    if (mLastUpdate.isNull()) // Never written, resolve names on the dispatches
+    // Never written or names changed, resolve names on the dispatches
+    if ( mLastUpdate.isNull() || 
+        inputJointNames.size() != joints.names.size() ||
+        inputJointNames != joints.names ) 
     {
         for (size_t i = 0; i < dispatches.size(); ++i)
             dispatches[i].resolveInputNames(joints);
+        
+        inputJointNames = joints.names;
     }
 
     for (size_t i = 0; i < dispatches.size(); ++i)
